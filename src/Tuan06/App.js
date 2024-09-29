@@ -1,11 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OneColumn from './Screens/OneColumn';
 
 const Stack = createNativeStackNavigator();
+
+function backLogoTitle() {
+  return (
+    <Image
+      styles={{ width: 50, height: 50 }}
+      source={require('./assets/Arrow-Back--Streamline-Outlined----Material-Symbols.svg')}
+    ></Image>
+  );
+}
 
 export default function App() {
 
@@ -20,18 +29,14 @@ export default function App() {
           },
           headerTitleAlign: "center",
           headerRight: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Info"
-              color="#fff"
-            />
+            <Image
+              source={require('./assets/Cart-Check--Streamline-Bootstrap.png')}
+            ></Image>
           ),
           headerLeft: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Back"
-              color="#fff"
-            />
+            <Image
+              source={require('./assets/Arrow-Back--Streamline-Outlined----Material-Symbols.png')}
+            ></Image>
           ),
           headerStyle: {
             backgroundColor: "#1BA9FF",

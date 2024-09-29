@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Button, Pressable, Image, SafeAreaVie
 
 const ItemCard = ({ item }) => (
     <View style={styles.itemCard}>
-        <Image source={item.img_link} style={{ width: 100, height: "100%", marginLeft: 10 }}></Image>
+        <Image source={item.img_link} style={{ width: 100, height: 70, marginLeft: 10 }}></Image>
         <View style={{justifyContent: 'space-evenly', height: '100%'}}>
             <Text style={{fontSize: 16}}>{item.name}</Text>
             <Text style={{fontSize: 14}}>Shop {item.shop_name}</Text>
@@ -35,7 +35,7 @@ const OneColumn = () => {
             <FlatList style ={{flex: 1, width: '100%'}}
                 data={item}
                 renderItem={renderItem}
-                keyExtractor={(item, index) => item.id}
+                keyExtractor={(item) => item.id}
             />
         </SafeAreaView>
     );
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     itemCard: {
         flex: 1,
-        height: 80,
+        height: 100,
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
