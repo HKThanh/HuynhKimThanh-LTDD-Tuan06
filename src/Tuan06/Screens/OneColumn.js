@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Button, Pressable, Image, SafeAreaVie
 
 const ItemCard = ({ item }) => (
     <View style={styles.itemCard}>
-        <Image source={item.img_link} style={{ width: 100, height: 100 }}></Image>
+        <Image source={item.img_link} style={{ width: 100, height: "100%", marginLeft: 10 }}></Image>
         <View style={{justifyContent: 'space-evenly', height: '100%'}}>
             <Text style={{fontSize: 16}}>{item.name}</Text>
             <Text style={{fontSize: 14}}>Shop {item.shop_name}</Text>
@@ -29,14 +29,14 @@ const OneColumn = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{flex: 0.3, alignItems: 'center', justifyContent: 'center'}}>
                 <Text style={{fontSize: 16}}>Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại{'\n'}chát với shop!</Text>
             </View>
-                <FlatList
-                    data={item}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                />
+            <FlatList style ={{flex: 1, width: '100%'}}
+                data={item}
+                renderItem={renderItem}
+                keyExtractor={(item, index) => item.id}
+            />
         </SafeAreaView>
     );
 }
