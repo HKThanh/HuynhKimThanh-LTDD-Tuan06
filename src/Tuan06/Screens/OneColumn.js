@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, FlatList, Button, Pressable, Image, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, StyleSheet, FlatList, Button, Pressable, Image, SafeAreaView } from "react-native";
 
 const ItemCard = ({ item }) => (
     <View style={styles.itemCard}>
