@@ -45,7 +45,10 @@ export default function App() {
         }}/> */}
         <Stack.Screen name="TwoColumn" component={TwoColumn} options={{
           headerTitle: () => (
-            <TextInput style={{width: 192, height: 30, backgroundColor: '#fff', paddingLeft: 30}} placeholder='Dây cáp usb'></TextInput>
+            <View style={{flex: 1, marginLeft: 20}}>
+              <TextInput style={{width: 192, height: 30, backgroundColor: '#fff', paddingLeft: 30}} placeholder='Dây cáp usb'></TextInput>
+              <Image source={require('./assets/magnifying.png')} style={{position: 'absolute', top: 4, left: 4}}></Image>
+            </View>
           ),
           headerTitleStyle: {
             fontSize: 24,
@@ -53,9 +56,15 @@ export default function App() {
           },
           headerTitleAlign: "center",
           headerRight: () => (
-            <Image
+            <View style={{flexDirection: 'row', justifyContent: 'space-around', width: 100}}>
+              <Image
               source={require('./assets/Cart-Check--Streamline-Bootstrap.png')}
-            ></Image>
+              ></Image>
+              <View style={{width: 17, height :17, backgroundColor: 'red', borderRadius: 8, position: 'absolute', top: -8, left: 28}}></View>
+              <Image
+                source={require('./assets/dots.png')} style={{width: 24, height: 24}}
+              ></Image>
+            </View>
           ),
           headerLeft: () => (
             <Image

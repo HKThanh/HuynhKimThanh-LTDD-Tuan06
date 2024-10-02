@@ -8,14 +8,17 @@ const formatter = new Intl.NumberFormat('vi-VN', {
 
 const ItemCard = ({ item }) => (
     <View style={styles.itemCard}>
-        <Image source={item.img_link} style={{ width: 'auto', height: 90}}></Image>
+        <Image source={{uri: item.img_link}} style={{ width: 155, height: 90}}></Image>
         <View style={{justifyContent: 'space-evenly'}}>
             <Text style={{fontSize: 14}}>{item.name}</Text>
             <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <Image source={require('../assets/rated.png')} style={{width: 100, height: 'auto'}}></Image>
                 <Text style={{fontSize: 13, marginLeft: 10}}>({item.rated})</Text>
             </View>
-            <Text style={{fontSize: 14}}>{formatter.format(item.cost)}  -{item.discount}%</Text>
+            <View style={{flexDirection: 'row'}}>
+                <Text style={{fontSize: 14}}>{formatter.format(item.cost)}  </Text>
+                <Text style={{fontSize: 12, color: 'gray'}}>-{item.discount}%</Text>
+            </View>
         </View>
     </View>
 );
@@ -27,7 +30,7 @@ const TwoColumn = () => {
         fetch('https://66f5f930436827ced97591ce.mockapi.io/api/lab04/items2')
         .then(response => response.json())
         .then(json => setItem(json))
-    }, [])
+    }, []);
 
     const renderItem = ({ item }) => {
         return <ItemCard item={item} />;
